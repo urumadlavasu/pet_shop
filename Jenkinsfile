@@ -2,15 +2,14 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Welcome & Checkout Code') {
+        stage('Get the code from Git') {
             steps {
-                echo "====================================="
-                echo "   Welcome to Greatcoder CI/CD 🚀"
-                echo "   Starting Pipeline Execution..."
-                echo "====================================="
+                git branch: 'main', url: 'https://github.com/urumadlavasu/pet_shop.git'
             }
         }
 
-    }
-}
+        stage('Build the code') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
