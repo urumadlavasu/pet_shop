@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+       label "rakesh"
+    }
+
+    stages {
+        stage('get code from github') {
+            steps {
+                git branch: 'main', url: 'https://github.com/urumadlavasu/pet_shop.git'
+            }
+        }
+        stage('Build code using maven') {
+            steps {
+               sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to tomcat') {
+            steps {
+              deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'jenkin-node', path: '', url: 'http://43.205.29.49:8080/')], contextPath: 'petshop', war: '**/*.war'
+            }
+        }
+    }
+}
