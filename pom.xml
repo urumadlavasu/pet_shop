@@ -59,9 +59,9 @@
          <plugin>
                <groupId>org.sonarsource.scanner.maven</groupId>
                <artifactId>sonar-maven-plugin</artifactId>
-               <version>5.0.0.4389</version> <!-- or the latest version -->
+               <version>5.0.0.4389</version>
          </plugin>
-                <!--Sonar plugin-->   
+      <!--Sonar plugin-->   
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
